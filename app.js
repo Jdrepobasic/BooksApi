@@ -1,0 +1,35 @@
+const express = require('express');
+const graphqlHTTP = require('express-graphql');
+const schema = require('./schema/schema');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const cors = require('cors');
+
+const app = express();
+
+app.use(cors());
+
+dotenv.config();
+
+// Mongo Configuration
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useUnifiedTopology', true);
+
+mongoose.connect(process.env.API_DB);
+
+mongoose.connection.once('open', ()=> {
+  console.log("Connected to mongo");
+})
+
+app.use('/graphql', graphqlHTTP({
+  schema,
+  graphiql: true
+}));
+
+app.get('/', function (req, res) {
+  res.send("OK!");
+});
+
+app.listen(4000, () => {
+  console.log('Listening 4000')
+});
