@@ -19,10 +19,6 @@ mongoose.set('useUnifiedTopology', true);
 
 mongoose.connect(process.env.API_DB);
 
-mongoose.connection.once('open', ()=> {
-  console.log("Connected to mongo");
-})
-
 app.use('/graphql', graphqlHTTP({
   schema,
   graphiql: true
