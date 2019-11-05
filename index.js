@@ -3,13 +3,11 @@ const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
 
 dotenv.config();
 
