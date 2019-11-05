@@ -2,10 +2,11 @@
   "name": "books-server",
   "version": "1.0.0",
   "description": "Server for books applications",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "start": "node index",
+    "build": "node index"
   },
   "author": "Jonathan Dean",
   "license": "ISC",
