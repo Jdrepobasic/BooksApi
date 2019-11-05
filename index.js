@@ -15,7 +15,7 @@ dotenv.config();
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect(process.env.API_DB);
+mongoose.connect(process.env.MONGO_URL);
 
 app.use('/graphql', graphqlHTTP({
   schema,
