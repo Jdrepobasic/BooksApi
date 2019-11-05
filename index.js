@@ -12,10 +12,11 @@ app.use(cors());
 dotenv.config();
 
 // Mongo Configuration
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect(process.env.MONGO_URL,
+  {
+    useNewUrlParser: true
+  });
 
 app.use('/graphql', graphqlHTTP({
   schema,
