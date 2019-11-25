@@ -13,6 +13,8 @@ const BookType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     genre: { type: new GraphQLList(GraphQLString) },
+    language: { type: GraphQLString },
+    pages: { type: GraphQLInt },
     year: { type: GraphQLInt },
     authorId: { type: GraphQLID },
     description: { type: GraphQLString },
@@ -97,6 +99,8 @@ const Mutation = new GraphQLObjectType({
         name: { type: new GraphQLNonNull(GraphQLString) },
         genre: { type: new GraphQLList(GraphQLString) },
         description: { type: new GraphQLNonNull(GraphQLString) },
+        language: { type: GraphQLString },
+        pages: { type: GraphQLInt },
         year: { type:GraphQLInt },
         authorId: { type: GraphQLID}
       },
@@ -106,6 +110,8 @@ const Mutation = new GraphQLObjectType({
           name: args.name,
           genre: args.genre,
           description: args.description,
+          language: args.language,
+          pages: args.pages,
           year:  args.year,
           authorId: args.authorId
         });

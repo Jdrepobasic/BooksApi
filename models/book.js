@@ -20,6 +20,14 @@ const booksSchema = new Schema({
   description:{
     type:String,
     required:true
+  },
+  pages:{
+    type:Number,
+    min:5,
+    max:10000
+  },
+  language:{
+    type:String
   }
 });
 
